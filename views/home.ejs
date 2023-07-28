@@ -11,13 +11,25 @@
     <div>
         <ul>
             <li>
-                <a href="/">home</a>
+                <a href="/">Home</a>
             </li>
             <li>
-                <a href="/">upload</a>
+                <a href="/">Upload</a>
             </li>
         </ul>
     </div>
+
+    <% cats.forEach(cat => {%>
+        <div>
+            <h5><%= cat.name %></h5>
+            <p>
+                Age: <% cat.age %>
+                Favorite Food: <% cat.favoriteFood %>
+                Fun fact: <% cat.funFact %>
+            </p>
+        </div>
+    })
+     
     
 </body>
 </html>
