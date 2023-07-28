@@ -21,12 +21,22 @@
 
     <% cats.forEach(cat => {%>
         <div>
+            <div>
+                <img src="/images/<%= cat.image %>" alt="cat image">
+            </div>
             <h5><%= cat.name %></h5>
             <p>
-                Age: <% cat.age %>
-                Favorite Food: <% cat.favoriteFood %>
+                Age: <% cat.age %> <br>
+                Favorite Food: <% cat.favoriteFood %> <br>
                 Fun fact: <% cat.funFact %>
             </p>
+        </div>    
+        <div> 
+            <a href = "/edit/<%= cat._id%>">Edit</a>
+            <form action="/delete/<%= cat._id%>"
+            method = "POST">
+            <button type="submit">Delete</button>
+            </form>
         </div>
     })
      

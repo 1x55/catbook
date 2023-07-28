@@ -10,7 +10,7 @@ const connectDB = require('./config/connectDB')
 connectDB()
 
 app.use(express.json())
-app.use(express.urlencoded ({extended: true})
+app.use(express.urlencoded ({extended: true}))
 app.use(express.static('public')) // middleware configuration in a express.js app that serves static files from the ‘public’ directory and serve it back to client if found
 
 // Set up view engine (EJS: embedded JavaScript), simplifies the process of generating dynamic HTML content in web applications. By embedding JavaScript code directly into templates, developers can create data-driven and interactive web pages efficiently.
