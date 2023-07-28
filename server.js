@@ -1,8 +1,13 @@
-equire('dotenv').config().const express = require('express')
+require('dotenv').config() //global
+const express = require('express')
 const app = express()
 const PORT = process.env.PORT ||  3500
 //Add middleware: (help process requests that go in and out of our server)
 const mongoose = require('mongoose') 
+const connectDB = require('./config/connectDB')
+
+//call connecDB function created in connectDB.js. When bellow is typed, line 7 is auto imported by vscode. since we exported it, it was automatically imported here by vsCode. Establish connection with DB
+connectDB()
 
 app.use(express.json())
 app.use(express.urlencoded ({extended: true})
@@ -12,4 +17,8 @@ app.use(express.static('public')) // middleware configuration in a express.js ap
 
 app.set('view engine', 'ejs')
 
-app.listen(PORT, () => console.log(`server running on port ${PORT`))
+//Listen for the 'open' event on the database connection
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB')
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) 
+})
