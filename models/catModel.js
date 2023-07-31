@@ -7,3 +7,6 @@ const catShema = new mongoose.Schema({
     funFact: String,
     image: String, //storing name of image file in DB, not the image itsef.Image is stored in Public folder
 })
+
+//want other parts of our app to be able to use our schema, so need to export.
+module.exports  = mongoose.model('Cat', catSchema)
