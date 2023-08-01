@@ -11,6 +11,7 @@ router
 router
  .route("upload") 
  .get(catController.uploadPage)
+ .post(catContoller.single('image'),catController.createCat)
         
  //route for edit 
  router
