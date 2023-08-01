@@ -56,6 +56,16 @@ const editPage = async (req, res) => {
         res.render('edit', {cat:cat})
     }catch(err) {
         console.log(err)
+    } 
+}
+
+const updateCat = async (req, res) => {
+    try{
+        //req.params is what we are looking for, req.body is the stuff we will replace
+        await Cat.findByIdAndUpdate(req.params.id,req.body)
+        res.redirect('/') //instead of rendering (editPage) we want a redirect
+    }catch(err) {
+        console.log(err)
     }
 }
 
@@ -64,6 +74,7 @@ module.exports = {
         getAllCats,
         upload,
         uploadPage,
-        createCat,
+        createCat,g
         editPage,
+        updateCat,
 }
