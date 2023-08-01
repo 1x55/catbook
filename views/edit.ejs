@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Cat</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/upload">Upload</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <div>
+            <div>
+                <!-- upload: creates a brand new entry  -->
+                <h2>Upload a Cat</h2>
+                <form action="/upload" method='POST' enctype="multipart/form-data">
+                    <div> 
+                        <label for="name"></label>
+                        <!-- required allows for validation on the fontend -->
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div> 
+                        <label for="age"></label>
+                        <input type="number" id="age" name="age" required>
+                    </div>
+
+                    <div> 
+                        <label for="favoriteFood"></label>
+                        <!-- required allows for validation on the fontend -->
+                        <input type="text" id="favoriteFood" name="favoriteFood" required>
+                    </div>
+
+                    <div> 
+                        <label for="funFact"></label>
+                        <input type="text" id="funFact" name="funFact" required>
+                    </div> 
+
+                    <!-- image using forms: set input type to file -->
+                    <div> 
+                        <label for="image"></label>
+                        <input type="file" id="image" name="image" required>
+                    </div> 
+
+                    <!-- button -->
+                    <button type="submit">Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
