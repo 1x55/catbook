@@ -14,12 +14,15 @@
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/">Upload</a>
+                <a href="/upload">Upload</a>
             </li>
         </ul>
     </div>
+
+    <!-- <div>
+    <div> -->
     <!-- EJS is expecting a object cats, sent from catControllers, and then loop through each one -->
-    <% cats.forEach(cat => {%>
+    <% cats.forEach(cat => { %>
         <div>
             <div>
                 <img src="/images/<%= cat.image %>" alt="cat image">
@@ -38,8 +41,8 @@
             <button type="submit">Delete</button>
             </form>
         </div>
-    })
-     
-    
+     <% }); %> <!-- Add this closing tag for the forEach loop -->
+    <!-- </div>
+    </div> -->
 </body>
 </html>

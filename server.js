@@ -4,14 +4,15 @@ const app = express()
 //Add middleware: (help process requests that go in and out of our server)
 const mongoose = require('mongoose') 
 const connectDB = require('./config/connectDB')
-const catRoutes = require('.routes/catRoutes')
+const catRoutes = require('./routes/catRoutes');
 const PORT = process.env.PORT ||  3500
 
 //call connecDB function created in connectDB.js. When bellow is typed, line 7 is auto imported by vscode. since we exported it, it was automatically imported here by vsCode. Establish connection with DB
 connectDB()
 
 app.use(express.json())
-app.use(express.urlencoded ({extended: true}))
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static('public')) // middleware configuration in a express.js app that serves static files from the ‘public’ directory and serve it back to client if found
 
 // Set up view engine (EJS: embedded JavaScript), simplifies the process of generating dynamic HTML content in web applications. By embedding JavaScript code directly into templates, developers can create data-driven and interactive web pages efficiently.
