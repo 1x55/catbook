@@ -23,35 +23,36 @@
             <div>
                 <!-- upload: creates a brand new entry  -->
                 <h2>Upload a Cat</h2>
-                <form action="/upload" method='POST' enctype="multipart/form-data">
+                <!-- ideally would like to use PUT for upadated but forms only have GET amnd POST -->
+                <form action="/edit/<%= cat._id %>" method='POST'>
                     <div> 
-                        <label for="name"></label>
+                        <label for="name">Cat's name</label>
                         <!-- required allows for validation on the fontend -->
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" value="<%= cat.name %>" required>
                     </div>
 
                     <div> 
-                        <label for="age"></label>
-                        <input type="number" id="age" name="age" required>
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" value="<%= cat.age %>"required>
                     </div>
 
                     <div> 
-                        <label for="favoriteFood"></label>
+                        <label for="favoriteFood">Favortite Food</label>
                         <!-- required allows for validation on the fontend -->
-                        <input type="text" id="favoriteFood" name="favoriteFood" required>
+                        <input type="text" id="favoriteFood" name="favoriteFood" value="<%= cat.favoriteFood %>"required>
                     </div>
 
                     <div> 
-                        <label for="funFact"></label>
+                        <label for="funFact">Fun Fact</label>
                         <input type="text" id="funFact" name="funFact" required>
                     </div> 
 
-                    <!-- image using forms: set input type to file -->
+                    <!-- image using forms: set input type to file
                     <div> 
-                        <label for="image"></label>
+                        <label for="image">Image</label>
                         <input type="file" id="image" name="image" required>
-                    </div> 
-
+                    </div>  -->
+  
                     <!-- button -->
                     <button type="submit">Submit</button>
                     

@@ -15,13 +15,13 @@ router
 .post(catController.upload.single('image'), catController.createCat);  
         
  //route for edit 
-//  router
-//  .route('/edit/:id')
-//  .get(catController.editPage)
-//  .post(catController.updateCat);
+ router
+ .route('/edit/:id')
+ .get(catController.editPage)
+ .post(catController.updateCat);
 
 
-//delete route
+// delete route
 // router
 // .route('/delete/:id')
 // .post(catController.deleteCat);

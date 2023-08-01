@@ -50,9 +50,20 @@ const createCat = async (req, res) => {
   }
 };
 
+const editPage = async (req, res) => {
+    try{
+        const cat = await Cat.findById(req.params.id)
+        res.render('edit', {cat:cat})
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+
 module.exports = {
         getAllCats,
         upload,
         uploadPage,
         createCat,
+        editPage,
 }
