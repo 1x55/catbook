@@ -1,0 +1,10 @@
+<div>
+<ul>
+    <li>
+        <a href="/">Home</a>
+    </li>
+    <li>
+        <a href="/upload">Upload</a>
+    </li>
+</ul>
+</div>
