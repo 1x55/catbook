@@ -1,5 +1,19 @@
 //import our model which contains both the schema to our controller and collection name 
 const Cat = require("../models/catModel")
+//multer: used to process image uploads
+const multer = require('multer')
+
+//multer config for image upload
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './public/images');
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+//take image out of form and placing it into public/images file
+const upload = multer({storage: storage})
 
 const getAllCats = async (req,res) => {
     try {
@@ -11,6 +25,35 @@ const getAllCats = async (req,res) => {
         console.log(err)
     }
 }  
+
+//display upload page form
+const uploadPage = (req,res) => {
+res.render('upload')
+}
+
+const createCat = async (req, res) => {
+    try {
+        const cat = new Cat({
+            name: req.body.name,
+            age: req.body.age,
+            favoriteFood: req.body.favoritFood,
+            funFact: req.body.funFact,
+            image: req.body.fileName //multer places the file info in req. file
+    })
+    
+
+    await cat.save()
+    res.redirect('/')
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
 module.exports = {
-        getAllCats
+        getAllCats,
+        upload,
+        uploadPage,
+        createCat,
 }
