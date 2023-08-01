@@ -3,7 +3,7 @@ const mongoose  = require("mongoose")
 const catSchema = new mongoose.Schema({
     name: String, 
     age: Number,
-    favoritFood: String,
+    favoriteFood: String,
     funFact: String,
     image: String, //storing name of image file in DB, not the image itsef.Image is stored in Public folder
 })

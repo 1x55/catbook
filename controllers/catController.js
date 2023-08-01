@@ -69,12 +69,21 @@ const updateCat = async (req, res) => {
     }
 }
 
+const deleteCat = async (req, res) => {
+    try{
+        await Cat.findByIdAndRemove(req.params.id)
+        res.redirect('/')
+    } catch(err) {
+        console.log(err)
+    }
+}
 
 module.exports = {
         getAllCats,
         upload,
         uploadPage,
-        createCat,g
+        createCat,
         editPage,
         updateCat,
+        deleteCat,
 }

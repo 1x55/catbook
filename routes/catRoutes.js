@@ -22,8 +22,8 @@ router
 
 
 // delete route
-// router
-// .route('/delete/:id')
-// .post(catController.deleteCat);
+router
+  .route('/delete/:id')
+  .post(catController.deleteCat);
 
 module.exports = router;
