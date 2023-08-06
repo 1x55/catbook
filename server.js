@@ -5,6 +5,10 @@ const app = express()
 const mongoose = require('mongoose') 
 const connectDB = require('./config/connectDB')
 const catRoutes = require('./routes/catRoutes');
+const passport = require('passport')
+const LocalStrategy = require('passport-local').strategy
+const User = require('./models/userModel')
+
 const PORT = process.env.PORT ||  3500
 
 //call connecDB function created in connectDB.js. When bellow is typed, line 7 is auto imported by vscode. since we exported it, it was automatically imported here by vsCode. Establish connection with DB
@@ -18,6 +22,25 @@ app.use(express.static('public')) // middleware configuration in a express.js ap
 // Set up view engine (EJS: embedded JavaScript), simplifies the process of generating dynamic HTML content in web applications. By embedding JavaScript code directly into templates, developers can create data-driven and interactive web pages efficiently.
 
 app.set('view engine', 'ejs')
+
+//Applications must initialize session support in order to make use of login sessions. In an Express app, session support is added by using express-session middleware.
+
+app.use(session({
+    secret: 'this is CatBook',
+    resave: false,
+    saveUnitialized: false
+}))
+
+//add the Passport initialization middleware to your express.js app
+app.use(passport.initialize())
+//this middleware will handle user session management. allowing Passprt to serilaze and deserialize user instances into and from the session
+app.use(passport.session())
+
+passport.use(new LocalStrategy(User.authenticate()))
+//scramble p/w
+passport.serializeUser(User.serializeUser())
+//descrable p/w
+passport.deserializeUser(User.deserializeUser)
 
 //middleware our server is setup to listen to someone visiting the home page. indicates that the middleware function(s) specified in the 'catRoutes' will be executed for any request made to the root path of the app
 app.use('/', catRoutes)
