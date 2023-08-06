@@ -42,6 +42,12 @@ passport.serializeUser(User.serializeUser())
 //descrable p/w
 passport.deserializeUser(User.deserializeUser)
 
+//passing current user info to all routes
+app.use((req,res,next) => {
+    res.locals.currentUser = req.user
+    next()
+})
+
 //middleware our server is setup to listen to someone visiting the home page. indicates that the middleware function(s) specified in the 'catRoutes' will be executed for any request made to the root path of the app
 app.use('/', catRoutes)
 
