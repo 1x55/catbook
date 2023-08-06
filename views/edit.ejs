@@ -12,32 +12,34 @@
 <body>
     <%- include('partials/navbar')%> 
 
-    <div>
-        <div>
-            <div>
-                <h2>Edit a Cat</h2>
-                <!-- ideally would like to use PUT for upadated but forms only have GET amnd POST -->
+    <div class="container">
+        <div class='row justify-content-center'>
+            <div class="col-lg-8">
+                <h2 class="text-center mb-4">Edit Cat Information</h2>
+                <!-- ideally would like to use PUT for upadated but forms only have GET and POST -->
                 <form action="/edit/<%= cat._id %>" method='POST'>
-                    <div> 
+                    
+                    <div class="form-group"> 
                         <label for="name">Cat's name</label>
                         <!-- required allows for validation on the fontend -->
-                        <input type="text" id="name" name="name"ç required>
+                        <input type="text" class="form-control" id="name" name="name"ç required>
                     </div>
 
-                    <div> 
+                    <div class="form-group"> 
                         <label for="age">Age</label>
-                        <input type="number" id="age" name="age" value="<%= cat.age %>"required>
+                        <input type="number" class="form-control" id="age" name="age" value="<%= cat.age %>"required>
                     </div>
-
-                    <div> 
-                        <label for="favoriteFood">Favortite Food</label>
+        
+                    <div class="form-group"> 
+                        <label for="favoriteFood">Favorite Food</label>
                         <!-- required allows for validation on the fontend -->
-                        <input type="text" id="favoriteFood" name="favoriteFood" value="<%= cat.favoriteFood %>"required>
+                        <input type="text" class="form-control" id="favoriteFood" name="favoriteFood" value="<%= cat.favoriteFood %>"required>
                     </div>
+                    
 
-                    <div> 
+                    <div class="form-group"> 
                         <label for="funFact">Fun Fact</label>
-                        <input type="text" id="funFact" name="funFact" value="<%= cat.funFact%>"required>
+                        <input type="text" class="form-control" id="funFact" name="funFact" value="<%= cat.funFact%>"required>
                     </div> 
 
                     <!-- image using forms: set input type to file
@@ -47,12 +49,11 @@
                     </div>  -->
   
                     <!-- button -->
-                    <button type="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                     
                 </form>
             </div>
         </div>
-    </div>
-    
+    </div>   
 </body>
 </html>
