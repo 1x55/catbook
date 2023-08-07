@@ -5,8 +5,9 @@ const app = express()
 const mongoose = require('mongoose') 
 const connectDB = require('./config/connectDB')
 const catRoutes = require('./routes/catRoutes');
+const session = require('express-session')
 const passport = require('passport')
-const LocalStrategy = require('passport-local').strategy
+const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/userModel')
 
 const PORT = process.env.PORT ||  3500
@@ -26,17 +27,18 @@ app.set('view engine', 'ejs')
 //Applications must initialize session support in order to make use of login sessions. In an Express app, session support is added by using express-session middleware.
 
 app.use(session({
-    secret: 'this is CatBook',
+    secret: 'cats are awesome', 
     resave: false,
-    saveUnitialized: false
-}))
+    saveUninitialized: false
+  }));
 
 //add the Passport initialization middleware to your express.js app
 app.use(passport.initialize())
 //this middleware will handle user session management. allowing Passprt to serilaze and deserialize user instances into and from the session
 app.use(passport.session())
 
-passport.use(new LocalStrategy(User.authenticate()))
+
+passport.use(new LocalStrategy(User.authenticate()));
 //scramble p/w
 passport.serializeUser(User.serializeUser())
 //descrable p/w
