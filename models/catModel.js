@@ -1,12 +1,15 @@
-const mongoose  = require("mongoose")
+const mongoose = require('mongoose');
 
-const catSchema = new mongoose.Schema({
-    name: String, 
-    age: Number,
-    favoriteFood: String,
-    funFact: String,
-    image: String, //storing name of image file in DB, not the image itsef.Image is stored in Public folder
-})
+const CatSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favoriteFood: String,
+  funFact: String,
+  image: String,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+});
 
-//want other parts of our app to be able to use our schema, so need to export.
-module.exports  = mongoose.model('Cat', catSchema)
+module.exports = mongoose.model('Cat', CatSchema);
