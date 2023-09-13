@@ -29,10 +29,10 @@ available soon
 
 - **MVC Architecture**: The application follows the Model-View-Controller (MVC) architecture, helping to separate concerns and improve code organization.
 
-- **Middleware Usage**: Middleware like Multer is used for handling file uploads, expanding knowledge of how to integrate third-party libraries into an application.
+- **Middleware Usage**: Used Multer for handling file uploads, expanding knowledge of how to integrate third-party libraries into an application.
 
-- **Database Interaction**: Interacting with a MongoDB database through Mongoose for CRUD operations is a valuable skill gained.
-- 
+- **Database Interaction**: Interacting with a MongoDB database through Mongoose for CRUD operations.
+  
 ## Optimisation:
 - **User Authentication**: Implement user authentication to restrict certain actions like adding, editing, or deleting cats to authorized users only.
 
