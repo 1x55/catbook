@@ -12,7 +12,7 @@ Introducing "Catbook" - the social network for cats (and cat lovers)!
 
 Join Catbook today and unleash your cat's inner celebrity! 🎉🐱
 
-**Key Features:**
+## Key Features:
 
 - **Cat Listing**: Users can view a list of all the cats in the database, displaying their names, ages, favorite foods, and fun facts, along with their images.
 
@@ -22,10 +22,10 @@ Join Catbook today and unleash your cat's inner celebrity! 🎉🐱
 
 - **Cat Deletion**: Users have the option to delete cats from the database, which removes them from the listing.
 
-**Link to project:** 
+## Link to project:
 comming soon
 
-**Tech used:** 
+## Tech used: 
 -  Node.js, Express.js, EJS for rendering views, MongoDB, Mongoose, Multer for handling file uploads, HTML, JavaScript, Bootstrap 
 
 ## Lessons Learned:
